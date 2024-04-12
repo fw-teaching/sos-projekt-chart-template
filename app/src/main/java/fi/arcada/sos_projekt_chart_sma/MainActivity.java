@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+
 public class MainActivity extends AppCompatActivity {
 
     String currency, datefrom, dateto;
@@ -27,13 +28,13 @@ public class MainActivity extends AppCompatActivity {
 
         // TEMPORÄRA VÄRDEN
         currency = "USD";
-        datefrom = "2022-01-01";
-        dateto = "2022-02-01";
+        datefrom = "2024-01-01";
+        dateto = "2024-03-31";
 
         // Hämta växelkurser från API
         ArrayList<Double> currencyValues = getCurrencyValues(currency, datefrom, dateto);
-        // Skriv ut dem i konsolen
-        System.out.println(currencyValues.toString());
+        // Skriv ut dem i konsolen (Logcat)
+        System.out.println("CurrencyValues: " + currencyValues.toString());
     }
 
 
@@ -43,10 +44,9 @@ public class MainActivity extends AppCompatActivity {
         CurrencyApi api = new CurrencyApi();
         ArrayList<Double> currencyData = null;
 
-        String urlString = String.format("https://api.exchangerate.host/timeseries?start_date=%s&end_date=%s&symbols=%s",
+        String urlString = String.format("https://api.frankfurter.app/%s..%s",
                 from.trim(),
-                to.trim(),
-                currency.trim());
+                to.trim());
 
         try {
             String jsonData = api.execute(urlString).get();
