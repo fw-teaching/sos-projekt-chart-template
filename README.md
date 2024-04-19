@@ -1,1 +1,1 @@
-# sos-projekt3-template
+# sos-chart-template
